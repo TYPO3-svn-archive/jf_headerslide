@@ -1,0 +1,53 @@
+###
+# This are the default TS-setup for jf_headerslide
+###
+
+plugin.tx_jfheaderslide_pi1 {
+	controller = {$plugin.jf_headerslide.controller}
+	linkTarget = {$plugin.jf_headerslide.linkTarget}
+	caption = {$plugin.jf_headerslide.caption}
+	resize = {$plugin.jf_headerslide.resize}
+	random = {$plugin.jf_headerslide.random}
+	disableRecursion = {$plugin.jf_headerslide.disableRecursion}
+	noJS = {$plugin.jf_headerslide.noJS}
+	animateOneImage = {$plugin.jf_headerslide.animateOneImage}
+	loaderAnimation = {$plugin.jf_headerslide.loaderAnimation}
+
+	width = {$plugin.jf_headerslide.width}
+	height = {$plugin.jf_headerslide.height}
+
+	cssFile = {$plugin.jf_headerslide.cssFile}
+	pathToMootools = {$plugin.jf_headerslide.pathToMootools}
+
+	type = {$plugin.jf_headerslide.type}
+	typeDirection = {$plugin.jf_headerslide.typeDirection}
+	transition = {$plugin.jf_headerslide.transition}
+	transitionDir = {$plugin.jf_headerslide.transitionDir}
+	transitionDuration = {$plugin.jf_headerslide.transitionDuration}
+	displayDuration = {$plugin.jf_headerslide.displayDuration}
+	color = {$plugin.jf_headerslide.color}
+	pan = {$plugin.jf_headerslide.pan}
+	zoom = {$plugin.jf_headerslide.zoom}
+}
+
+# For the content Elements
+includeLibs.jf_headerslide = EXT:jf_headerslide/class.tx_headerslide.php
+tt_content.image.20 {
+	imgMax = 1000
+	imgMax.preUserFunc = user_tx_headerslide->isActive
+	stdWrap.preUserFunc = user_tx_headerslide->getSlideshow
+	rendering {
+		dl {
+			imgTagStdWrap.wrap >
+			imgTagStdWrap.dataWrap = <dt id="jf_headerslide_slideshow_{field:uid}"> | </dt>
+		}
+		ul {
+			imgTagStdWrap.dataWrap = <div id="jf_headerslide_slideshow_{field:uid}"> | </div>
+		}
+		div {
+			imgTagStdWrap.wrap >
+			imgTagStdWrap.dataWrap = <div id="jf_headerslide_slideshow_{field:uid}"> | </div>
+		}
+	}
+}
+

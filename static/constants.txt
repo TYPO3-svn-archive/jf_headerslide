@@ -1,0 +1,80 @@
+###
+# This are the default TS-constants for jf_headerslide
+###
+
+# enable, dims, file, typo, color, links oder language
+
+plugin.jf_headerslide {
+	# cat=plugin.jf_headerslide/enable/010; type=boolean; label=Display the Control-Pannel on mouse over
+	controller = 0
+
+	# cat=plugin.jf_headerslide/enable/020; type=options[_self,_new,_top,_parent]; label=Linktarget:The Target where the Links will be opend
+	linkTarget = _self
+
+	# cat=plugin.jf_headerslide/enable/030; type=boolean; label=Show captions:If set, the captions will be displayed
+	caption = false
+
+	# cat=plugin.jf_headerslide/enable/040; type=boolean; label=Enable image-resizing:"false" only works with fade, pan, push and wipe type slideshows, kenburns slideshows will always resizing images
+	resize = 0
+
+	# cat=plugin.jf_headerslide/enable/050; type=boolean; label=Random: Show the images random
+	random = 0
+
+	# cat=plugin.jf_headerslide/enable/060; type=boolean; label=Disable Recursion:Disable the root line fetching if there are no images
+	disableRecursion = 0
+
+	# cat=plugin.jf_headerslide/enable/070; type=boolean; label=No Javascript:Set to one to get the random function only (no javascript will be included)
+	noJS = 0
+
+	# cat=plugin.jf_headerslide/enable/080; type=boolean; label=Show animation even one image:Set to one to get the animation even one image is selected
+	animateOneImage = 1
+
+	# cat=plugin.jf_headerslide/enable/090; type=boolean; label=Show the loader:Shows the spinner graphic when loading the new image
+	loaderAnimation = 1
+
+
+
+	# cat=plugin.jf_headerslide/dims/010; type=int+; label=Image Width:The width of the image (0 = autodetect)
+	width = 0
+
+	# cat=plugin.jf_headerslide/dims/020; type=int+; label=Image Height:The height of the image (0 = autodetect)
+	height = 0
+
+
+
+	# cat=plugin.jf_headerslide/file/010; type=file[css]; label=CSS file:The Path to the stylesheet file
+	cssFile = EXT:jf_headerslide/res1/css/slideshow.css
+
+	# cat=plugin.jf_headerslide/file/020; type=file[js]; label=Location of Mootools:The Path to the Mootools Library
+	pathToMootools = EXT:jf_headerslide/res1/js/mootools.js
+
+
+
+	# cat=plugin.jf_headerslide/typo/010; type=options[fade,push,wipe,flash,fold,kenburns]; label=Type of the movement:Values are fade, push, wipe and kenburns.
+	type = fade
+
+	# cat=plugin.jf_headerslide/typo/020; type=options[left,right,down,up]; label=Direction of movement:Values are left, right, down, up and works only for wipe
+	typeDirection = right
+
+	# cat=plugin.jf_headerslide/typo/030; type=options[quad,cubic,quart,quint,expo,circ,sine,back,bounce,elastic]; label=Transition:Effect of transition (quad, cubic, quart, quint, expo, circ, sine, back, bounce, elastic)
+	transition = back
+
+	# cat=plugin.jf_headerslide/typo/040; type=options[:in,:out,:in:out]; label=Transition direction:Direction of transition (in, out, in_out)
+	transitionDir = :in:out
+
+	# cat=plugin.jf_headerslide/typo/050; type=int+; label=Duration transition:The duration of the transition in milliseconds
+	transitionDuration = 2000
+
+	# cat=plugin.jf_headerslide/typo/060; type=int+; label=Duration Display:The display duration of the image in milliseconds
+	displayDuration = 6000
+
+	# cat=plugin.jf_headerslide/typo/070; type=string; label=Color flash:Color of the flash, separate by comma (only for flash)
+	color = #cc0000,#ff00ff
+
+	# cat=plugin.jf_headerslide/typo/080; type=int+; label=Degree of panning:Percentage between 0 and 100 (only for kenburns)
+	pan = 20
+
+	# cat=plugin.jf_headerslide/typo/090; type=int+; label=Degree of zooming:Percentage between 0 and 100 (only for kenburns)
+	zoom = 10
+
+}
