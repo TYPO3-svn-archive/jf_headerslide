@@ -10,9 +10,9 @@
 			<label index="pi1_title">Slideshow</label>
 			<label index="pi1_plus_wiz_description">Add a slideshow to your page</label>
 		</languageKey>
-		<languageKey index="de" type="array">
-			<label index="pi1_title">Slideshow</label>
-			<label index="pi1_plus_wiz_description">Fügen Sie eine Slideshow hinzu</label>
-		</languageKey>
 	</data>
+	<orig_hash type="array">
+	</orig_hash>
+	<orig_text type="array">
+	</orig_text>
 </T3locallang>
