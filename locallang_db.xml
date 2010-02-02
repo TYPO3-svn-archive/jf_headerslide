@@ -24,7 +24,7 @@
 			<label index="tt_content.pi_flexform.showcaption">Show caption</label>
 			<label index="tt_content.pi_flexform.random">Random order</label>
 			<label index="tt_content.pi_flexform.noJS">No javascript</label>
-			<label index="tt_content.pi_flexform.animateOneImage">Show animation even one image is selected</label>
+			<label index="tt_content.pi_flexform.animateOneImage">Show animation even if only one image is selected</label>
 			<label index="tt_content.pi_flexform.loaderAnimation">Show spinner Graphic</label>
 			<label index="tt_content.pi_flexform.sheet_movement">Movement</label>
 			<label index="tt_content.pi_flexform.type">Typo of movement</label>
