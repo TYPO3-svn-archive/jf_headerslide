@@ -30,24 +30,24 @@ plugin.tx_jfheaderslide_pi1 {
 	zoom = {$plugin.jf_headerslide.zoom}
 }
 
-# For the content Elements
-includeLibs.jf_headerslide = EXT:jf_headerslide/class.tx_headerslide.php
-tt_content.image.20 {
-	imgMax = 1000
-	imgMax.preUserFunc = user_tx_headerslide->isActive
-	stdWrap.preUserFunc = user_tx_headerslide->getSlideshow
-	rendering {
-		dl {
-			imgTagStdWrap.wrap >
-			imgTagStdWrap.dataWrap = <dt id="jf_headerslide_slideshow_{field:uid}"> | </dt>
-		}
-		ul {
-			imgTagStdWrap.dataWrap = <div id="jf_headerslide_slideshow_{field:uid}"> | </div>
-		}
-		div {
-			imgTagStdWrap.wrap >
-			imgTagStdWrap.dataWrap = <div id="jf_headerslide_slideshow_{field:uid}"> | </div>
-		}
-	}
-}
+# For content Elements
+# includeLibs.jf_headerslide = EXT:jf_headerslide/class.tx_headerslide.php
+# tt_content.image.20 {
+# 	imgMax = 1000
+# 	imgMax.preUserFunc = user_tx_headerslide->isActive
+# 	stdWrap.preUserFunc = user_tx_headerslide->getSlideshow
+# 	rendering {
+# 		dl {
+# 			imgTagStdWrap.wrap >
+# 			imgTagStdWrap.dataWrap = <dt id="jf_headerslide_slideshow_{field:uid}"> | </dt>
+# 		}
+# 		ul {
+# 			imgTagStdWrap.dataWrap = <div id="jf_headerslide_slideshow_{field:uid}"> | </div>
+# 		}
+# 		div {
+# 			imgTagStdWrap.wrap >
+# 			imgTagStdWrap.dataWrap = <div id="jf_headerslide_slideshow_{field:uid}"> | </div>
+# 		}
+# 	}
+# }
 
