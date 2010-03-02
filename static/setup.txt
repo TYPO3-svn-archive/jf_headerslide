@@ -6,6 +6,7 @@ plugin.tx_jfheaderslide_pi1 {
 	controller = {$plugin.jf_headerslide.controller}
 	linkTarget = {$plugin.jf_headerslide.linkTarget}
 	caption = {$plugin.jf_headerslide.caption}
+	captionsDuration = {$plugin.jf_headerslide.captionsDuration}
 	resize = {$plugin.jf_headerslide.resize}
 	random = {$plugin.jf_headerslide.random}
 	disableRecursion = {$plugin.jf_headerslide.disableRecursion}

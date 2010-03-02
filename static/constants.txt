@@ -14,22 +14,25 @@ plugin.jf_headerslide {
 	# cat=plugin.jf_headerslide/enable/030; type=boolean; label=Show captions:If set, the captions will be displayed
 	caption = false
 
-	# cat=plugin.jf_headerslide/enable/040; type=boolean; label=Enable image-resizing:"false" only works with fade, pan, push and wipe type slideshows, kenburns slideshows will always resizing images
+	# cat=plugin.jf_headerslide/enable/040; type=int; label=Captions duration (in ms):Sets the duration of the captions animation
+	captionsDuration = 500
+
+	# cat=plugin.jf_headerslide/enable/050; type=boolean; label=Enable image-resizing:"false" only works with fade, pan, push and wipe type slideshows, kenburns slideshows will always resizing images
 	resize = 0
 
-	# cat=plugin.jf_headerslide/enable/050; type=boolean; label=Random: Show the images random
+	# cat=plugin.jf_headerslide/enable/060; type=boolean; label=Random: Show the images random
 	random = 0
 
-	# cat=plugin.jf_headerslide/enable/060; type=boolean; label=Disable Recursion:Disable the root line fetching if there are no images
+	# cat=plugin.jf_headerslide/enable/070; type=boolean; label=Disable Recursion:Disable the root line fetching if there are no images
 	disableRecursion = 0
 
-	# cat=plugin.jf_headerslide/enable/070; type=boolean; label=No Javascript:Set to one to get the random function only (no javascript will be included)
+	# cat=plugin.jf_headerslide/enable/080; type=boolean; label=No Javascript:Set to one to get the random function only (no javascript will be included)
 	noJS = 0
 
-	# cat=plugin.jf_headerslide/enable/080; type=boolean; label=Show animation even one image:Set to one to get the animation even one image is selected
+	# cat=plugin.jf_headerslide/enable/090; type=boolean; label=Show animation even one image:Set to one to get the animation even one image is selected
 	animateOneImage = 1
 
-	# cat=plugin.jf_headerslide/enable/090; type=boolean; label=Show the loader:Shows the spinner graphic when loading the new image
+	# cat=plugin.jf_headerslide/enable/100; type=boolean; label=Show the loader:Shows the spinner graphic when loading the new image
 	loaderAnimation = 1
 
 

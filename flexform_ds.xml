@@ -14,8 +14,7 @@
 					<images>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.images
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.images</label>
 							<config>
 								<type>group</type>
 								<internal_type>file</internal_type>
@@ -33,8 +32,7 @@
 					<href>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.href
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.href</label>
 							<config>
 								<type>text</type>
 								<wrap>OFF</wrap>
@@ -46,8 +44,7 @@
 					<caption>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.caption
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.caption</label>
 							<config>
 								<type>text</type>
 								<wrap>OFF</wrap>
@@ -70,8 +67,7 @@
 					<width>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.width
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.width</label>
 							<config>
 								<type>input</type>
 								<size>5</size>
@@ -84,8 +80,7 @@
 					<height>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.height
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.height</label>
 							<config>
 								<type>input</type>
 								<size>5</size>
@@ -98,8 +93,7 @@
 					<showcontroller>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.showcontroller
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.showcontroller</label>
 							<config>
 								<type>check</type>
 								<default>1</default>
@@ -109,19 +103,31 @@
 					<showcaption>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.showcaption
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.showcaption</label>
 							<config>
 								<type>check</type>
 								<default>1</default>
 							</config>
 						</TCEforms>
 					</showcaption>
+					<captionsDuration>
+						<TCEforms>
+							<exclude>1</exclude>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.captionsDuration</label>
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<max>4</max>
+								<checkbox>0</checkbox>
+								<default>500</default>
+								<eval>int</eval>
+							</config>
+						</TCEforms>
+					</captionsDuration>
 					<random>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.random
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.random</label>
 							<config>
 								<type>check</type>
 								<default>0</default>
@@ -131,8 +137,7 @@
 					<noJS>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.noJS
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.noJS</label>
 							<config>
 								<type>check</type>
 								<default>0</default>
@@ -142,8 +147,7 @@
 					<animateOneImage>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.animateOneImage
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.animateOneImage</label>
 							<config>
 								<type>check</type>
 								<default>1</default>
@@ -153,8 +157,7 @@
 					<loaderAnimation>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.loaderAnimation
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.loaderAnimation</label>
 							<config>
 								<type>check</type>
 								<default>0</default>
@@ -175,8 +178,7 @@
 					<type>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.type
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.type</label>
 							<config>
 								<type>select</type>
 								<items type="array">
@@ -217,8 +219,7 @@
 					<typedirection>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.typedirection
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.typedirection</label>
 							<config>
 								<type>select</type>
 								<items type="array">
@@ -251,8 +252,7 @@
 					<pan>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.pan
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.pan</label>
 							<config>
 								<type>input</type>
 								<size>5</size>
@@ -269,8 +269,7 @@
 					<zoom>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.zoom
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.zoom</label>
 							<config>
 								<type>input</type>
 								<size>5</size>
@@ -287,8 +286,7 @@
 					<transition>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.transition
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.transition</label>
 							<config>
 								<type>select</type>
 								<items type="array">
@@ -345,8 +343,7 @@
 					<transitiondir>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.transitiondir
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.transitiondir</label>
 							<config>
 								<type>select</type>
 								<items type="array">
@@ -375,8 +372,7 @@
 					<transitionduration>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.transitionduration
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.transitionduration</label>
 							<config>
 								<type>input</type>
 								<size>5</size>
@@ -389,8 +385,7 @@
 					<displayduration>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.displayduration
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.displayduration</label>
 							<config>
 								<type>input</type>
 								<size>5</size>
@@ -403,8 +398,7 @@
 					<color>
 						<TCEforms>
 							<exclude>1</exclude>
-							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.color
-							</label>
+							<label>LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.pi_flexform.color</label>
 							<config>
 								<type>input</type>
 								<size>30</size>
@@ -417,4 +411,4 @@
 			</ROOT>
 		</movement>
 	</sheets>
-</T3DataStructure>
+</T3DataStructure>

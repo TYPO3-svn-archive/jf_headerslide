@@ -22,6 +22,7 @@
 			<label index="tt_content.pi_flexform.height">Height</label>
 			<label index="tt_content.pi_flexform.showcontroller">Show controller</label>
 			<label index="tt_content.pi_flexform.showcaption">Show caption</label>
+			<label index="tt_content.pi_flexform.captionsDuration">Caption duration (in ms)</label>
 			<label index="tt_content.pi_flexform.random">Random order</label>
 			<label index="tt_content.pi_flexform.noJS">No javascript</label>
 			<label index="tt_content.pi_flexform.animateOneImage">Show animation even if only one image is selected</label>

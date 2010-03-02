@@ -114,6 +114,9 @@ class tx_jfheaderslide_pi1 extends tslib_pibase {
 			if ($this->lConf['color']) {
 				$this->conf['color'] = $this->lConf['color'];
 			}
+			if ($this->lConf['captionsDuration']) {
+				$this->conf['captionsDuration'] = $this->lConf['captionsDuration'];
+			}
 			$this->conf['controller']      = $this->lConf['showcontroller'];
 			$this->conf['caption']         = $this->lConf['showcaption'];
 			$this->conf['random']          = $this->lConf['random'];
@@ -395,7 +398,7 @@ window.addEvent('domready', function() {
 	var data = {".implode(", ", $slide_data)."};
 	myShow_{$this->slide_uid} = new {$jsClass}('{$this->slide_uid}', data, {
 		hu: '{$dir}',
-		captions: ".($this->conf['caption'] ? 'true' : 'false').",
+		captions: ".($this->conf['caption'] ? '{duration: '.($this->conf['captionsDuration'] > 0 ? $this->conf['captionsDuration'] : 0).'}' : 'false').",
 		controller: ".($this->conf['controller'] ? 'true' : 'false').",
 		{$classes}
 		loader: ".($this->conf['loaderAnimation'] ? "{'animate': ['".t3lib_extMgm::siteRelPath($this->extKey)."res1/img/loader-#.png', 1]}" : "false").",
