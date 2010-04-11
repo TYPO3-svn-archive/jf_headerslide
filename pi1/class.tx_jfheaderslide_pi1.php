@@ -312,6 +312,9 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 		// define default JS Class
 		$jsClass = 'Slideshow';
 
+		// Define default zoom factor
+		$zoom_factor = 1;
+
 		// the default slideshow JS
 		$this->addSlideshowJsFile(t3lib_extMgm::siteRelPath($this->extKey).'res1/js/slideshow.js');
 
@@ -374,6 +377,7 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 			case 'kenburns' : {
 				$this->addSlideshowJsFile(t3lib_extMgm::siteRelPath($this->extKey).'res1/js/slideshow.kenburns.js');
 				$jsClass = 'Slideshow.KenBurns';
+				$zoom_factor = (100 + trim($this->conf['pan']) + trim($this->conf['zoom'])) / 100;
 				break;
 			}
 		}
@@ -387,8 +391,15 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 		// Create the data array
 		$slide_data = array();
 		foreach ($data as $key => $val) {
-			$slide_data[] = "'{$val['image']}': {caption:'".t3lib_div::slashJS($val['caption'])."', href:'".t3lib_div::slashJS($val['href'])."'}";
+			$image_config['file'] = $dir . $val['image'];
+			$image_config['file.']['width']  = ($this->conf['width']  * $zoom_factor)."c";
+			$image_config['file.']['height'] = ($this->conf['height'] * $zoom_factor)."c";
+			$image_info = pathinfo($this->cObj->IMG_RESOURCE($image_config));
+			$new_dir = $image_info['dirname']."/";
+
+			$slide_data[] = "'{$image_info['basename']}': {caption:'".t3lib_div::slashJS($val['caption'])."', href:'".t3lib_div::slashJS($val['href'])."'}";
 		}
+		$dir = $new_dir."/"; // Should be "typo3temp/pics/"
 
 		// create the js
 		$content = "
