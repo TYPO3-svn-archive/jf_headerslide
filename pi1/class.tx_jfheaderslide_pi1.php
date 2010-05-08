@@ -421,7 +421,7 @@ window.addEvent('domready', function() {
 		zoom: ".(trim($this->conf['zoom']) ? $this->conf['zoom'] : 0).",
 		color: ['".((count($this->colors) > 0) ? implode("','", $this->colors) : "#ffffff")."'],
 		{$transition}
-		random: ".($this->conf['random'] ? 'true' : 'false').",
+		random: ".($this->conf['random'] && count($slide_data) > 1 ? 'true' : 'false').",
 		paused: ".($this->conf['paused'] ? 'true' : 'false').",
 		width: '{$this->conf['width']}',
 		height: '{$this->conf['height']}'
