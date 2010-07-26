@@ -123,6 +123,7 @@ class tx_jfheaderslide_pi1 extends tslib_pibase {
 			$this->conf['noJS']            = $this->lConf['noJS'];
 			$this->conf['animateOneImage'] = $this->lConf['animateOneImage'];
 			$this->conf['loaderAnimation'] = $this->lConf['loaderAnimation'];
+			$this->conf['centerImage']     = $this->lConf['centerImage'];
 		} else {
 			// It's the header
 			foreach ($GLOBALS['TSFE']->rootLine as $page) {
@@ -414,6 +415,7 @@ window.addEvent('domready', function() {
 		{$classes}
 		loader: ".($this->conf['loaderAnimation'] ? "{'animate': ['".t3lib_extMgm::siteRelPath($this->extKey)."res1/img/loader-#.png', 1]}" : "false").",
 		resize: ".($this->conf['resize'] ? 'true' : 'false').",
+		center: ".($this->conf['centerImage'] ? 'true' : 'false').",
 		type: '".(trim($this->conf['type']) ? $this->conf['type'] : 'fade')."',
 		duration: ".(trim($this->conf['transitionDuration']) ? intval($this->conf['transitionDuration']) : 2000).",
 		delay: ".(trim($this->conf['displayDuration']) ? intval($this->conf['displayDuration']) : 6000).",
