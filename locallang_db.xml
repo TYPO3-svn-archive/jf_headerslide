@@ -10,7 +10,8 @@
 			<label index="pages.tx_jfheaderslide_stoprecursion">Stop Recursion (Reset)</label>
 			<label index="pages.tx_jfheaderslide_href">Image links</label>
 			<label index="pages.tx_jfheaderslide_caption">Image Captions</label>
-			<label index="tt_content.tx_jfheaderslide_activate">Activate Image Slide</label>
+			<label index="tt_content.tx_jfheaderslide_title">Header Slide</label>
+			<label index="tt_content.tx_jfheaderslide_activate">Activate</label>
 			<label index="tt_content.tx_jfheaderslide_duration">Duration in ms</label>
 			<label index="tt_content.list_type_pi1">Slideshow</label>
 			<label index="tt_content.pi_flexform.sheet_general">General</label>

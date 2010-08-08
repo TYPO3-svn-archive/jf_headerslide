@@ -78,17 +78,19 @@ $tempColumns = Array (
 
 t3lib_div::loadTCA('tt_content');
 t3lib_extMgm::addTCAcolumns('tt_content', $tempColumns,1);
-$GLOBALS['TCA']['tt_content']['palettes']['7']['showitem'] .= ',tx_jfheaderslide_activate,tx_jfheaderslide_duration';
+$TCA['tt_content']['palettes']['tx_jfheaderslide'] = array(
+	'showitem' => 'tx_jfheaderslide_activate,tx_jfheaderslide_duration',
+	'canNotCollapse' => 1,
+);
+t3lib_extMgm::addToAllTCAtypes('tt_content', '--palette--;LLL:EXT:jf_headerslide/locallang_db.xml:tt_content.tx_jfheaderslide_title;tx_jfheaderslide', 'textpic', 'before:imagecaption');
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key,pages';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='pi_flexform';
+
 
 
 // Static
 t3lib_extMgm::addStaticFile($_EXTKEY,'static/', 'JF Header Slide');
 
-
-// For the content plugin
-t3lib_div::loadTCA('tt_content');
-$TCA['tt_content']['types']['list']['subtypes_excludelist'][$_EXTKEY.'_pi1']='layout,select_key,pages';
-$TCA['tt_content']['types']['list']['subtypes_addlist'][$_EXTKEY.'_pi1']='pi_flexform';
 
 
 t3lib_extMgm::addPlugin(array(
