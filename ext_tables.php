@@ -53,7 +53,7 @@ t3lib_extMgm::addToAllTCAtypes('pages','tx_jfheaderslide_images;;;;1-1-1, tx_jfh
 
 t3lib_div::loadTCA('pages_language_overlay');
 t3lib_extMgm::addTCAcolumns('pages_language_overlay',$tempColumns,1);
-t3lib_extMgm::addToAllTCAtypes('pages_language_overlay','tx_jfheaderslide_images;;;;1-1-1, tx_jfheaderslide_stoprecursion');
+t3lib_extMgm::addToAllTCAtypes('pages_language_overlay','tx_jfheaderslide_images;;;;1-1-1, tx_jfheaderslide_stoprecursion, tx_jfheaderslide_href, tx_jfheaderslide_caption');
 
 // Content
 $tempColumns = Array (
