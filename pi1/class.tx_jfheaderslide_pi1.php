@@ -227,9 +227,11 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 //]]>
 </script>
 <noscript>
+<p>
 '.($data[0]['href'] ? '<a href="'.$data[0]['href'].'" title="'.$data[0]['caption'].'" '.$target.'>' : '').'
 <img src="'.$alt_image.'" '.$size[3].' alt="'.$data[0]['caption'].'" />
 '.($data[0]['href'] ? '</a>' : '').'
+</p>
 </noscript>
 </div>';
 		return $content;
