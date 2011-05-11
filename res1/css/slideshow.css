@@ -18,8 +18,8 @@ HTML:
 	</div>
 	
 Notes:
-	These next four rules are set by the Slideshow script.
-	You can override any of them with the !important keyword but the slideshow probably will not work as intended.
+	These next five rules are required for Slideshow to work correctly.
+	Override at your own risk.
 */
 
 .slideshow {
@@ -40,6 +40,12 @@ Notes:
 .slideshow-thumbnails {
 	overflow: hidden;
 }
+.slideshow-thumbnails ul {
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100000px;
+}
 
 /**
 HTML:
@@ -53,15 +59,18 @@ Notes:
 	Customize the visible / prev / next classes to effect the slideshow transitions: fading, wiping, etc.
 */
 
-
-.slideshow-images-visible { 
+.slideshow-images {
+	height: 300px;
+	width: 400px;
+}
+.slideshow-images-visible {
 	opacity: 1;
 }
-.slideshow-images-prev { 
-	opacity: 0; 
+.slideshow-images-prev {
+	opacity: 0;
 }
-.slideshow-images-next { 
-	opacity: 0; 
+.slideshow-images-next {
+	opacity: 0;
 }
 .slideshow-images img {
 	float: left;
@@ -74,6 +83,15 @@ Notes:
 	These are examples of user-defined styles.
 	Customize these classes to your usage of Slideshow.
 */
+
+.slideshow {
+	height: auto;
+	margin: 0 auto;
+	width: 400px;
+}
+.slideshow a img {
+	border: 0;
+}
 
 /**
 HTML:
@@ -112,7 +130,7 @@ HTML:
 		<ul>
 			<li class="first"><a /></li>
 			<li class="prev"><a /></li>
-			<li class="pause play"><a /></li>
+			<li class="play"><a /></li>
 			<li class="next"><a /></li>
 			<li class="last"><a /></li>
 		</ul>
@@ -124,17 +142,18 @@ Notes:
 
 .slideshow-controller {
 	background: url(../img/controller.png) no-repeat;
-	height: 42px;
+	height: 48px;
 	left: 50%;
-	margin: -21px 0 0 -119px;
+	margin: -24px 0 0 -122px;
 	overflow: hidden;
 	position: absolute;
 	top: 50%;
-	width: 238px;
+	width: 244px;
 	z-index: 10000;
 }
 .slideshow-controller * {
 	margin: 0;
+	outline: none;
 	padding: 0;
 }
 .slideshow-controller-hidden { 
@@ -144,49 +163,59 @@ Notes:
 	opacity: 1;
 }
 .slideshow-controller a {
+	background: url(../img/controller-controls.png) no-repeat -47px 0;
 	cursor: pointer;
 	display: block;
 	height: 18px;
+	left: 112px;
 	overflow: hidden;
 	position: absolute;
-	top: 12px;
+	top: 15px;
+	width: 20px;
 }
 .slideshow-controller a.active {
-	background-position: 0 18px;
+	background-position: -47px -18px;
 }
 .slideshow-controller li {
 	list-style: none;
 }
 .slideshow-controller li.first a {
-	background-image: url(../img/controller-first.gif);
-	left: 33px;
+	background-position: 0 0;
+	left: 36px;
 	width: 19px;
 }
-.slideshow-controller li.last a {
-	background-image: url(../img/controller-last.gif);
-	left: 186px;
-	width: 19px;
-}
-.slideshow-controller li.next a {
-	background-image: url(../img/controller-next.gif);
-	left: 145px;
-	width: 28px;
-}
-.slideshow-controller li.pause a {
-	background-image: url(../img/controller-pause.gif);
-	left: 109px;
-	width: 20px;
-}
-.slideshow-controller li.play a {
-	background-position: 20px 0;
-}
-.slideshow-controller li.play a.active {
-	background-position: 20px 18px;
+.slideshow-controller li.first a.active {
+	background-position: 0 -18px;
 }
 .slideshow-controller li.prev a {
-	background-image: url(../img/controller-prev.gif);
-	left: 65px;
+	background-position: -19px 0;
+	left: 68px;
 	width: 28px;
+}
+.slideshow-controller li.prev a.active {
+	background-position: -19px -18px;
+}
+.slideshow-controller li.play a {
+	background-position: -67px 0;
+}
+.slideshow-controller li.play a.active {
+	background-position: -67px -18px;
+}
+.slideshow-controller li.next a {
+	background-position: -87px 0;
+	left: 148px;
+	width: 28px;
+}
+.slideshow-controller li.next a.active {
+	background-position: -87px -18px;
+}
+.slideshow-controller li.last a {
+	background-position: -115px 0;
+	left: 189px;
+	width: 19px;
+}
+.slideshow-controller li.last a.active {
+	background-position: -115px -18px;
 }
 
 /**
@@ -198,11 +227,12 @@ Notes:
 */
 
 .slideshow-loader {
-	height: 28px;
-	right: 0;
+	background: url(../img/loader.png);
+	height: 30px;
+	right: 2px;
 	position: absolute;
-	top: 0;
-	width: 28px;
+	top: 2px;
+	width: 30px;
 	z-index: 10001;
 }
 .slideshow-loader-hidden {
@@ -229,8 +259,8 @@ Notes:
 */
 
 .slideshow-thumbnails {
-	bottom: -65px;
-	height: 65px;
+	bottom: -55px;
+	height: 55px;
 	left: 0;
 	position: absolute;
 	width: 100%;
@@ -239,24 +269,16 @@ Notes:
 	margin: 0;
 	padding: 0;
 }
-.slideshow-thumbnails ul {
-	height: 65px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 10000px;
-}
 .slideshow-thumbnails li {
 	float: left;
 	list-style: none;
-	margin: 5px 5px 5px 0;
-	position: relative;
 }
 .slideshow-thumbnails a {
 	display: block;
 	float: left;
+	outline: none;
+	margin: 5px 5px 0 0;
 	padding: 5px;
-	position: relative; 
 }
 .slideshow-thumbnails a:hover {
 	background-color: #FF9 !important;
@@ -265,11 +287,15 @@ Notes:
 .slideshow-thumbnails img {
 	display: block;
 }
-.slideshow-thumbnails-active {
-	background-color: #9FF;
-	opacity: 1;
+.slideshow-thumbnails-hidden {
+	background-color: #FFF;
+	opacity: 0;
 }
 .slideshow-thumbnails-inactive {
 	background-color: #FFF;
 	opacity: .5;
+}
+.slideshow-thumbnails-active {
+	background-color: #9FF;
+	opacity: 1;
 }

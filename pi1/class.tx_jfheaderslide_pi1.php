@@ -26,7 +26,7 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
 
 
 /**
- * Plugin 'Slideshow' for the 'fl_header_slide' extension.
+ * Plugin 'Slideshow' for the 'jf_headerslide' extension.
  *
  * @author	Juergen Furrer <juergen.furrer@gmail.com>
  * @package	TYPO3
@@ -63,19 +63,33 @@ class tx_jfheaderslide_pi1 extends tslib_pibase {
 		$pageID = false;
 		if ($this->cObj->data['list_type'] == $this->extKey.'_pi1') {
 			// It's a content, al data from flexform
-			$this->pi_initPIflexForm(); // Init and get the flexform data of the plugin
 			$this->lConf = array(); // Setup our storage array...
-			// Assign the flexform data to a local variable for easier access
-			$piFlexForm = $this->cObj->data['pi_flexform'];
-			// Traverse the entire array based on the language...
-			// and assign each configuration option to $this->lConf array...
-			foreach ($piFlexForm['data'] as $sheet => $data) {
-				foreach ($data as $lang => $value) {
-					foreach ($value as $key => $val) {
-						$this->lConf[$key] = $this->pi_getFFvalue($piFlexForm, $key, $sheet);
-					}
-				}
-			}
+
+			$this->lConf['images']  = $this->getFlexformData('general', 'images');
+			$this->lConf['href']    = $this->getFlexformData('general', 'href');
+			$this->lConf['caption'] = $this->getFlexformData('general', 'caption');
+
+			$this->lConf['width']            = $this->getFlexformData('settings', 'width');
+			$this->lConf['height']           = $this->getFlexformData('settings', 'height');
+			$this->lConf['showcontroller']   = $this->getFlexformData('settings', 'showcontroller');
+			$this->lConf['showcaption']      = $this->getFlexformData('settings', 'showcaption');
+			$this->lConf['captionsDuration'] = $this->getFlexformData('settings', 'captionsDuration');
+			$this->lConf['random']           = $this->getFlexformData('settings', 'random');
+			$this->lConf['noJS']             = $this->getFlexformData('settings', 'noJS');
+			$this->lConf['animateOneImage']  = $this->getFlexformData('settings', 'animateOneImage');
+			$this->lConf['loaderAnimation']  = $this->getFlexformData('settings', 'loaderAnimation');
+			$this->lConf['centerImage']      = $this->getFlexformData('settings', 'centerImage');
+
+			$this->lConf['type']               = $this->getFlexformData('movement', 'type');
+			$this->lConf['typedirection']      = $this->getFlexformData('movement', 'typedirection', ($this->lConf['type'] == 'wipe'));
+			$this->lConf['pan']                = $this->getFlexformData('movement', 'pan', ($this->lConf['type'] == 'kenburns'));
+			$this->lConf['zoom']               = $this->getFlexformData('movement', 'zoom', ($this->lConf['type'] == 'kenburns'));
+			$this->lConf['transition']         = $this->getFlexformData('movement', 'transition');
+			$this->lConf['transitiondir']      = $this->getFlexformData('movement', 'transitiondir');
+			$this->lConf['transitionduration'] = $this->getFlexformData('movement', 'transitionduration');
+			$this->lConf['displayduration']    = $this->getFlexformData('movement', 'displayduration');
+			$this->lConf['color']              = $this->getFlexformData('movement', 'color');
+
 			$this->slide_uid .= '_' . $this->cObj->data['uid'];
 			$images  = $this->lConf['images'];
 			$href    = $this->lConf['href'];
@@ -211,7 +225,7 @@ class tx_jfheaderslide_pi1 extends tslib_pibase {
 			$this->addSlideshowJS($data);
 		}
 
-		// Define the the target
+		// Define the target
 		// TODO: XHTML (Javascript)
 		if ($this->conf['linkTarget'] && $this->conf['linkTarget'] != '_self') {
 			$target = ' target="'.$this->conf['linkTarget'].'"';
@@ -281,7 +295,8 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 	 * @param string $dir
 	 * @return void
 	 */
-	function addSlideshowJS($data, $dir='') {
+	function addSlideshowJS($data, $dir='')
+	{
 		// define the directory of images
 		if ($dir == '') {
 			$dir = $this->imageDir;
@@ -319,7 +334,7 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 		$zoom_factor = 1;
 
 		// the default slideshow JS
-		$this->addSlideshowJsFile(t3lib_extMgm::siteRelPath($this->extKey).'res1/js/slideshow.js');
+		$this->addSlideshowJsFile($this->conf['slideshow']);
 
 		// Different types
 		$classes = "";
@@ -327,7 +342,7 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 #{$this->slide_uid} .slideshow-images {width: {$this->conf['width']}px; height: {$this->conf['height']}px;}";
 		switch (trim($this->conf['type'])) {
 			case 'wipe' : {
-				$classes = "classes: ['', '','','','','','','images_{$this->slide_uid}'],";
+				$classes = "classes: ['','','','','','','','images_{$this->slide_uid}'],";
 				$style = "
 .slideshow-images_{$this->slide_uid} {width: {$this->conf['width']}px; height: {$this->conf['height']}px;}";
 				switch (trim($this->conf['typeDirection'])) {
@@ -363,22 +378,22 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 				break;
 			}
 			case 'push' : {
-				$this->addSlideshowJsFile(t3lib_extMgm::siteRelPath($this->extKey).'res1/js/slideshow.push.js');
+				$this->addSlideshowJsFile($this->conf['slideshowPush']);
 				$jsClass = 'Slideshow.Push';
 				break;
 			}
 			case 'fold' : {
-				$this->addSlideshowJsFile(t3lib_extMgm::siteRelPath($this->extKey).'res1/js/slideshow.fold.js');
+				$this->addSlideshowJsFile($this->conf['slideshowFold']);
 				$jsClass = 'Slideshow.Fold';
 				break;
 			}
 			case 'flash' : {
-				$this->addSlideshowJsFile(t3lib_extMgm::siteRelPath($this->extKey).'res1/js/slideshow.flash.js');
+				$this->addSlideshowJsFile($this->conf['slideshowFlash']);
 				$jsClass = 'Slideshow.Flash';
 				break;
 			}
 			case 'kenburns' : {
-				$this->addSlideshowJsFile(t3lib_extMgm::siteRelPath($this->extKey).'res1/js/slideshow.kenburns.js');
+				$this->addSlideshowJsFile($this->conf['slideshowKenburns']);
 				$jsClass = 'Slideshow.KenBurns';
 				$zoom_factor = (100 + trim($this->conf['pan']) + trim($this->conf['zoom'])) / 100;
 				break;
@@ -415,7 +430,7 @@ window.addEvent('domready', function() {
 		captions: ".($this->conf['caption'] ? '{duration: '.($this->conf['captionsDuration'] > 0 ? $this->conf['captionsDuration'] : 0).'}' : 'false').",
 		controller: ".($this->conf['controller'] ? 'true' : 'false').",
 		{$classes}
-		loader: ".($this->conf['loaderAnimation'] ? "{'animate': ['".t3lib_extMgm::siteRelPath($this->extKey)."res1/img/loader-#.png', 1]}" : "false").",
+		loader: ".($this->conf['loaderAnimation'] ? "true" : "false").",
 		resize: ".($this->conf['resize'] ? 'true' : 'false').",
 		center: ".($this->conf['centerImage'] ? 'true' : 'false').",
 		type: '".(trim($this->conf['type']) ? $this->conf['type'] : 'fade')."',
@@ -479,6 +494,43 @@ window.addEvent('domready', function() {
 	{
 		if ($this->getPath($script) && ! in_array($script, $this->slideshowCSSFile)) {
 			$this->slideshowCSSFile[] = $script;
+		}
+	}
+
+
+	/**
+	 * Extract the requested information from flexform
+	 * @param string $sheet
+	 * @param string $name
+	 * @param boolean $devlog
+	 * @return string
+	 */
+	function getFlexformData($sheet='', $name='', $devlog=true)
+	{
+		$this->pi_initPIflexForm();
+		$piFlexForm = $this->cObj->data['pi_flexform'];
+		if (! isset($piFlexForm['data'])) {
+			if ($devlog === true) {
+				t3lib_div::devLog("Flexform Data not set", $this->extKey, 1);
+			}
+			return null;
+		}
+		if (! isset($piFlexForm['data'][$sheet])) {
+			if ($devlog === true) {
+				t3lib_div::devLog("Flexform sheet '{$sheet}' not defined", $this->extKey, 1);
+			}
+			return null;
+		}
+		if (! isset($piFlexForm['data'][$sheet]['lDEF'][$name])) {
+			if ($devlog === true) {
+				t3lib_div::devLog("Flexform Data [{$sheet}][{$name}] does not exist", $this->extKey, 1);
+			}
+			return null;
+		}
+		if (isset($piFlexForm['data'][$sheet]['lDEF'][$name]['vDEF'])) {
+			return $this->pi_getFFvalue($piFlexForm, $name, $sheet);
+		} else {
+			return $piFlexForm['data'][$sheet]['lDEF'][$name];
 		}
 	}
 }

@@ -1,7 +1,3 @@
-###
-# This are the default TS-setup for jf_headerslide
-###
-
 plugin.tx_jfheaderslide_pi1 {
 	controller = {$plugin.jf_headerslide.controller}
 	linkTarget = {$plugin.jf_headerslide.linkTarget}
@@ -18,8 +14,13 @@ plugin.tx_jfheaderslide_pi1 {
 	width = {$plugin.jf_headerslide.width}
 	height = {$plugin.jf_headerslide.height}
 
-	cssFile = {$plugin.jf_headerslide.cssFile}
-	pathToMootools = {$plugin.jf_headerslide.pathToMootools}
+	cssFile = {$plugin.jf_headerslide.file.cssFile}
+	pathToMootools = {$plugin.jf_headerslide.file.pathToMootools}
+	slideshow = {$plugin.jf_headerslide.file.slideshow}
+	slideshowFlash = {$plugin.jf_headerslide.file.slideshowFlash}
+	slideshowFold = {$plugin.jf_headerslide.file.slideshowFold}
+	slideshowKenburns = {$plugin.jf_headerslide.file.slideshowKenburns}
+	slideshowPush = {$plugin.jf_headerslide.file.slideshowPush}
 
 	type = {$plugin.jf_headerslide.type}
 	typeDirection = {$plugin.jf_headerslide.typeDirection}
