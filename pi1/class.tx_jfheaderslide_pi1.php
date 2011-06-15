@@ -32,11 +32,12 @@ require_once(PATH_tslib.'class.tslib_pibase.php');
  * @package	TYPO3
  * @subpackage	tx_jfheaderslide
  */
-class tx_jfheaderslide_pi1 extends tslib_pibase {
-	var $prefixId      = 'tx_jfheaderslide_pi1';		// Same as class name
-	var $scriptRelPath = 'pi1/class.tx_jfheaderslide_pi1.php';	// Path to this script relative to the extension dir.
-	var $extKey        = 'jf_headerslide';	// The extension key.
-	var $pi_checkCHash = true;
+class tx_jfheaderslide_pi1 extends tslib_pibase
+{
+	var $prefixId      = 'tx_jfheaderslide_pi1';
+	var $scriptRelPath = 'pi1/class.tx_jfheaderslide_pi1.php';
+	var $extKey        = 'jf_headerslide';
+	var $pi_checkCHash = TRUE;
 
 	var $imageDir = 'uploads/tx_jfheaderslide/';
 	var $slide_uid = '';
@@ -51,7 +52,8 @@ class tx_jfheaderslide_pi1 extends tslib_pibase {
 	 * @param	array		$conf: The PlugIn configuration
 	 * @return	The content that is displayed on the website
 	 */
-	function main($content, $conf) {
+	function main($content, $conf)
+	{
 		// Define the config
 		$this->conf = $conf;
 		// Define the slide_uid
@@ -60,7 +62,7 @@ class tx_jfheaderslide_pi1 extends tslib_pibase {
 		$images  = '';
 		$href    = '';
 		$caption = '';
-		$pageID = false;
+		$pageID = FALSE;
 		if ($this->cObj->data['list_type'] == $this->extKey.'_pi1') {
 			// It's a content, al data from flexform
 			$this->lConf = array(); // Setup our storage array...
@@ -256,7 +258,8 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 	 *
 	 * @return void
 	 */
-	function addResources() {
+	function addResources()
+	{
 		// checks if t3mootools is loaded
 		if (t3lib_extMgm::isLoaded('t3mootools')) {
 			require_once(t3lib_extMgm::extPath('t3mootools').'class.tx_t3mootools.php');
@@ -266,7 +269,7 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 			tx_t3mootools::addMooJS();
 		} else {
 			// Add Mootools at first position of file list
-			$this->addSlideshowJsFile($this->conf['pathToMootools'], true);
+			$this->addSlideshowJsFile($this->conf['pathToMootools'], TRUE);
 		}
 		// add all defined JS files
 		if (count($this->slideshowJsFile) > 0) {
@@ -304,7 +307,7 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 
 		// Check if $data is array
 		if (count($data) == 0) {
-			return false;
+			return FALSE;
 		}
 
 		// no animation if only one picture is selected
@@ -418,6 +421,7 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 			$slide_data[] = "'{$image_info['basename']}': {caption:'".t3lib_div::slashJS($val['caption'])."', href:'".t3lib_div::slashJS($val['href'])."'}";
 		}
 		$dir = $new_dir."/"; // Should be "typo3temp/pics/"
+		$dir = str_replace("//", "/", $dir);
 
 		// create the js
 		$content = "
@@ -430,7 +434,7 @@ window.addEvent('domready', function() {
 		captions: ".($this->conf['caption'] ? '{duration: '.($this->conf['captionsDuration'] > 0 ? $this->conf['captionsDuration'] : 0).'}' : 'false').",
 		controller: ".($this->conf['controller'] ? 'true' : 'false').",
 		{$classes}
-		loader: ".($this->conf['loaderAnimation'] ? "true" : "false").",
+		loader: ".($this->conf['loaderAnimation'] ? 'true' : 'false').",
 		resize: ".($this->conf['resize'] ? 'true' : 'false').",
 		center: ".($this->conf['centerImage'] ? 'true' : 'false').",
 		type: '".(trim($this->conf['type']) ? $this->conf['type'] : 'fade')."',
@@ -441,9 +445,10 @@ window.addEvent('domready', function() {
 		color: ['".((count($this->colors) > 0) ? implode("','", $this->colors) : "#ffffff")."'],
 		{$transition}
 		random: ".($this->conf['random'] && count($slide_data) > 1 ? 'true' : 'false').",
-		paused: ".($this->conf['paused'] ? 'true' : 'false').",
+		paused: ".($this->conf['paused'] ? 'TRUE' : 'false').",
 		width: '{$this->conf['width']}',
-		height: '{$this->conf['height']}'
+		height: '{$this->conf['height']}',
+		thumbnails: false
 	});
 });
 //]]>
@@ -473,10 +478,10 @@ window.addEvent('domready', function() {
 	 * @param boolean $first
 	 * @return void
 	 */
-	function addSlideshowJsFile($script="", $first=false)
+	function addSlideshowJsFile($script="", $first=FALSE)
 	{
 		if ($this->getPath($script) && ! in_array($script, $this->slideshowJsFile)) {
-			if ($first === true) {
+			if ($first === TRUE) {
 				$this->slideshowJsFile = array_merge(array($script), $this->slideshowJsFile);
 			} else {
 				$this->slideshowJsFile[] = $script;
@@ -505,27 +510,27 @@ window.addEvent('domready', function() {
 	 * @param boolean $devlog
 	 * @return string
 	 */
-	function getFlexformData($sheet='', $name='', $devlog=true)
+	function getFlexformData($sheet='', $name='', $devlog=TRUE)
 	{
 		$this->pi_initPIflexForm();
 		$piFlexForm = $this->cObj->data['pi_flexform'];
 		if (! isset($piFlexForm['data'])) {
-			if ($devlog === true) {
+			if ($devlog === TRUE) {
 				t3lib_div::devLog("Flexform Data not set", $this->extKey, 1);
 			}
-			return null;
+			return NULL;
 		}
 		if (! isset($piFlexForm['data'][$sheet])) {
-			if ($devlog === true) {
+			if ($devlog === TRUE) {
 				t3lib_div::devLog("Flexform sheet '{$sheet}' not defined", $this->extKey, 1);
 			}
-			return null;
+			return NULL;
 		}
 		if (! isset($piFlexForm['data'][$sheet]['lDEF'][$name])) {
-			if ($devlog === true) {
+			if ($devlog === TRUE) {
 				t3lib_div::devLog("Flexform Data [{$sheet}][{$name}] does not exist", $this->extKey, 1);
 			}
-			return null;
+			return NULL;
 		}
 		if (isset($piFlexForm['data'][$sheet]['lDEF'][$name]['vDEF'])) {
 			return $this->pi_getFFvalue($piFlexForm, $name, $sheet);
@@ -536,7 +541,7 @@ window.addEvent('domready', function() {
 }
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jf_headerslide/pi1/class.tx_jfheaderslide_pi1.php'])	{
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jf_headerslide/pi1/class.tx_jfheaderslide_pi1.php']) {
 	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/jf_headerslide/pi1/class.tx_jfheaderslide_pi1.php']);
 }
 ?>

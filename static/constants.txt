@@ -51,22 +51,22 @@ plugin.jf_headerslide {
 	file.cssFile = EXT:jf_headerslide/res1/css/slideshow.css
 
 	# cat=plugin.jf_headerslide/file/020; type=file[js]; label=Location of Mootools:The Path to the Mootools Library
-	file.pathToMootools = EXT:jf_headerslide/res1/js/mootools-1.3.1.js
+	file.pathToMootools = EXT:jf_headerslide/res1/js/mootools-1.3.2.js
 
 	# cat=plugin.jf_headerslide/file/030; type=file[js]; label=Slideshow: Location for base-effect
-	file.slideshow = EXT:jf_headerslide/res1/js/slideshow-1.3.1.js
+	file.slideshow = EXT:jf_headerslide/res1/js/slideshow-1.3.2.js
 
 	# cat=plugin.jf_headerslide/file/040; type=file[js]; label=Flash effect: Location for fold-effect
-	file.slideshowFlash = EXT:jf_headerslide/res1/js/slideshow-1.3.1.flash.js
+	file.slideshowFlash = EXT:jf_headerslide/res1/js/slideshow-1.3.2.flash.js
 
 	# cat=plugin.jf_headerslide/file/050; type=file[js]; label=Fold effect: Location for fold-effect
-	file.slideshowFold = EXT:jf_headerslide/res1/js/slideshow-1.3.1.fold.js
+	file.slideshowFold = EXT:jf_headerslide/res1/js/slideshow-1.3.2.fold.js
 
 	# cat=plugin.jf_headerslide/file/060; type=file[js]; label=Kenburns effect: Location for kenburns-effect
-	file.slideshowKenburns = EXT:jf_headerslide/res1/js/slideshow-1.3.1.kenburns.js
+	file.slideshowKenburns = EXT:jf_headerslide/res1/js/slideshow-1.3.2.kenburns.js
 
 	# cat=plugin.jf_headerslide/file/070; type=file[js]; label=Push effect: Location of the push-effect
-	file.slideshowPush = EXT:jf_headerslide/res1/js/slideshow-1.3.1.push.js
+	file.slideshowPush = EXT:jf_headerslide/res1/js/slideshow-1.3.2.push.js
 
 
 
