@@ -445,7 +445,7 @@ window.addEvent('domready', function() {
 		color: ['".((count($this->colors) > 0) ? implode("','", $this->colors) : "#ffffff")."'],
 		{$transition}
 		random: ".($this->conf['random'] && count($slide_data) > 1 ? 'true' : 'false').",
-		paused: ".($this->conf['paused'] ? 'TRUE' : 'false').",
+		paused: ".($this->conf['paused'] ? 'true' : 'false').",
 		width: '{$this->conf['width']}',
 		height: '{$this->conf['height']}',
 		thumbnails: false

@@ -1,2 +1,3 @@
-script=res1/js/slideshow.js,res1/js/slideshow.flash.js,res1/js/slideshow.fold.js,res1/js/slideshow.kernburns.js,res1/js/slideshow.push.js
+script=res1/js/slideshow.js,res1/js/slideshow.flash.js,res1/js/slideshow.fold.js,res1/js/slideshow.kernburns.js,res1/js/slideshow.push.js
+
 components=Utilities.DomReady,Window.DomReady,Utilities.domready,Window.domready
