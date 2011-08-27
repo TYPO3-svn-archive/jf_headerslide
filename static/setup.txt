@@ -28,6 +28,7 @@ plugin.tx_jfheaderslide_pi1 {
 	transitionDir = {$plugin.jf_headerslide.transitionDir}
 	transitionDuration = {$plugin.jf_headerslide.transitionDuration}
 	displayDuration = {$plugin.jf_headerslide.displayDuration}
+	fastOnLoad = {$plugin.jf_headerslide.fastOnLoad}
 	color = {$plugin.jf_headerslide.color}
 	pan = {$plugin.jf_headerslide.pan}
 	zoom = {$plugin.jf_headerslide.zoom}

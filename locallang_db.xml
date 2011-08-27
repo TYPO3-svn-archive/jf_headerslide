@@ -38,6 +38,7 @@
 			<label index="tt_content.pi_flexform.transitiondir">Direction of transition</label>
 			<label index="tt_content.pi_flexform.transitionduration">Duration of transition</label>
 			<label index="tt_content.pi_flexform.displayduration">Duration of display</label>
+			<label index="tt_content.pi_flexform.fastOnLoad">Fast at start</label>
 			<label index="tt_content.pi_flexform.color">Colors (comma separated)</label>
 		</languageKey>
 	</data>

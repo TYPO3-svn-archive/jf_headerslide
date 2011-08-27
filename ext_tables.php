@@ -18,7 +18,7 @@ $tempColumns = array (
 			'show_thumbs' => 1,
 			'size' => 6,
 			'minitems' => 0,
-			'maxitems' => 25,
+			'maxitems' => 1000,
 		)
 	),
 	'tx_jfheaderslide_stoprecursion' => array (

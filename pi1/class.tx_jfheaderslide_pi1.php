@@ -90,6 +90,7 @@ class tx_jfheaderslide_pi1 extends tslib_pibase
 			$this->lConf['transitiondir']      = $this->getFlexformData('movement', 'transitiondir');
 			$this->lConf['transitionduration'] = $this->getFlexformData('movement', 'transitionduration');
 			$this->lConf['displayduration']    = $this->getFlexformData('movement', 'displayduration');
+			$this->lConf['fastOnLoad']         = $this->getFlexformData('movement', 'fastOnLoad');
 			$this->lConf['color']              = $this->getFlexformData('movement', 'color');
 
 			$this->slide_uid .= '_' . $this->cObj->data['uid'];
@@ -126,6 +127,9 @@ class tx_jfheaderslide_pi1 extends tslib_pibase
 			}
 			if ($this->lConf['displayduration']) {
 				$this->conf['displayDuration'] = $this->lConf['displayduration'];
+			}
+			if ($this->lConf['fastOnLoad']) {
+				$this->conf['fastOnLoad'] = $this->lConf['fastOnLoad'];
 			}
 			if ($this->lConf['color']) {
 				$this->conf['color'] = $this->lConf['color'];
@@ -448,7 +452,8 @@ window.addEvent('domready', function() {
 		paused: ".($this->conf['paused'] ? 'true' : 'false').",
 		width: '{$this->conf['width']}',
 		height: '{$this->conf['height']}',
-		thumbnails: false
+		thumbnails: false,
+		fast: ".($this->conf['fastOnLoad'] ? 'OnStart' : 'false')."
 	});
 });
 //]]>

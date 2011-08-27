@@ -88,6 +88,9 @@ plugin.jf_headerslide {
 	# cat=plugin.jf_headerslide/typo/060; type=int+; label=Duration Display:The display duration of the image in milliseconds
 	displayDuration = 6000
 
+	# cat=plugin.jf_headerslide/typo/065; type=boolean; label=Fast at start: If set, the animation at startup will be turned off
+	fastOnLoad = 0
+
 	# cat=plugin.jf_headerslide/typo/070; type=string; label=Color flash:Color of the flash, separate by comma (only for flash)
 	color = #cc0000,#ff00ff
 
