@@ -6,6 +6,7 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
+			<label index="pages.tx_jfheaderslide_div">Header Slider</label>
 			<label index="pages.tx_jfheaderslide_images">Slide Images</label>
 			<label index="pages.tx_jfheaderslide_stoprecursion">Stop Recursion (Reset)</label>
 			<label index="pages.tx_jfheaderslide_href">Image links</label>
