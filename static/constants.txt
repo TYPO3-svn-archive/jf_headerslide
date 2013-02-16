@@ -38,6 +38,10 @@ plugin.jf_headerslide {
 	# cat=plugin.jf_headerslide/enable/110; type=boolean; label=Center image: Try to center the image by using javascript
 	centerImage = 0
 
+	# cat=plugin.jf_headerslide/enable/120; type=boolean; label=Javascript in Footer: If set, the Javascript will be rendered in Footer
+	jsInFooter = 0
+
+
 
 	# cat=plugin.jf_headerslide/dims/010; type=int+; label=Image Width:The width of the image (0 = autodetect)
 	width = 0

@@ -280,8 +280,14 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 		if (count($this->slideshowJsFile) > 0) {
 			foreach ($this->slideshowJsFile as $jsToLoad) {
 				// Add script only once
-				if (! preg_match("/".preg_quote($this->getPath($jsToLoad), "/")."/", $GLOBALS['TSFE']->additionalHeaderData['jsFile_'.$this->extKey])) {
-					$GLOBALS['TSFE']->additionalHeaderData['jsFile_'.$this->extKey] .= ($this->getPath($jsToLoad) ? '<script src="'.$this->getPath($jsToLoad).'" type="text/javascript"></script>'.chr(10) :'');
+				if ($this->conf['jsInFooter']) {
+					if (! preg_match("/".preg_quote($this->getPath($jsToLoad), "/")."/", $GLOBALS['TSFE']->additionalFooterData['jsFile_'.$this->extKey])) {
+						$GLOBALS['TSFE']->additionalFooterData['jsFile_'.$this->extKey] .= ($this->getPath($jsToLoad) ? '<script src="'.$this->getPath($jsToLoad).'" type="text/javascript"></script>'.chr(10) :'');
+					}
+				} else {
+					if (! preg_match("/".preg_quote($this->getPath($jsToLoad), "/")."/", $GLOBALS['TSFE']->additionalHeaderData['jsFile_'.$this->extKey])) {
+						$GLOBALS['TSFE']->additionalHeaderData['jsFile_'.$this->extKey] .= ($this->getPath($jsToLoad) ? '<script src="'.$this->getPath($jsToLoad).'" type="text/javascript"></script>'.chr(10) :'');
+					}
 				}
 			}
 		}
@@ -429,7 +435,7 @@ document.writeln(\'<img src="'.t3lib_div::slashJS($first_image).'" '.$size[3].' 
 		$dir = str_replace("//", "/", $dir);
 
 		// create the js
-		$content = "
+		$js_content = "
 <script type=\"text/javascript\">
 //<![CDATA[
 window.addEvent('domready', function() {
@@ -459,11 +465,18 @@ window.addEvent('domready', function() {
 });
 //]]>
 </script>
+";
+		$css_content = "
 <style type=\"text/css\">
 {$style}
 </style>
 ";
-		$GLOBALS['TSFE']->additionalHeaderData['data_'.$this->extKey] .= $content;
+		$GLOBALS['TSFE']->additionalHeaderData['css2_'.$this->extKey] .= $css_content;
+		if ($this->conf['jsInFooter']) {
+			$GLOBALS['TSFE']->additionalFooterData['data_'.$this->extKey] .= $js_content;
+		} else {
+			$GLOBALS['TSFE']->additionalHeaderData['data_'.$this->extKey] .= $js_content;
+		}
 	}
 
 	/**

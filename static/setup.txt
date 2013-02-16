@@ -10,6 +10,7 @@ plugin.tx_jfheaderslide_pi1 {
 	animateOneImage = {$plugin.jf_headerslide.animateOneImage}
 	loaderAnimation = {$plugin.jf_headerslide.loaderAnimation}
 	centerImage = {$plugin.jf_headerslide.centerImage}
+	jsInFooter = {$plugin.jf_headerslide.jsInFooter}
 
 	width = {$plugin.jf_headerslide.width}
 	height = {$plugin.jf_headerslide.height}
